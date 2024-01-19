@@ -3,6 +3,19 @@
 }
 .custom
 {
-  margin-top: 6%;
+  margin-top: 8%;
   padding: 0 15% 5%;
+}
+
+@media (max-width: 480px) {
+  .custom {
+    margin-top: 25%;
+    padding: 0 5% 5%;
+  }
+}
+@media (min-width: 480px) and (max-width: 767px) {
+  .custom {
+    margin-top: 15%;
+    padding: 0 5% 5%;
+  }
 }

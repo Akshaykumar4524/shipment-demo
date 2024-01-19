@@ -1,0 +1,109 @@
+.custom {
+  margin-top: 7%;
+  padding: 1% 1%;
+
+}
+
+.custom-vertical {
+  height: 100%;
+  width: 2px;
+  background-color: grey;
+
+}
+
+.custom-container {
+  margin-top: 10px;
+  height: 65.5vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  overflow-x: hidden;
+
+}
+
+.custom-container::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.custom-row {
+  padding: 10px;
+  padding-left: 50px;
+  margin: 10px;
+  border-bottom: 1px solid grey;
+}
+
+.custom-row:hover {
+  border: 1px solid grey;
+  background-color: #F5F5F5;
+  /* cursor: pointer; */
+}
+
+.shipment-no {
+  font-weight: 600;
+  cursor: pointer;
+  color: rgb(5, 107, 158);
+}
+
+.filter-popup {
+  position: absolute;
+  top: 100%;
+  /* top: 10px; */
+  right: 0;
+  width: 350px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  /* padding: 10px; */
+  z-index: 1000;
+}
+
+.custom-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 10px 10px 10px;
+  background-color: #F5F5F5;
+  margin: 10px 10px 0 10px;
+}
+
+.filter-heading {
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.my-component {
+  width: 33.33%;
+  margin-top: 10px;
+}
+
+@media (max-width: 480px) {
+  .my-component {
+    width: 50%;
+  }
+
+  .custom {
+    margin-top: 25%;
+  }
+
+  .custom-row {
+    padding-left: 5px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .custom {
+    margin-top: 15%;
+  }
+
+  .custom-row {
+    padding-left: 15px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .custom {
+    margin-top: 10%;
+  }
+
+  .custom-row {
+    padding-left: 20px;
+  }
+}

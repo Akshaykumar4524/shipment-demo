@@ -1,0 +1,79 @@
+.custom {
+  margin-top: 6%;
+  padding: 1% 1%;
+}
+
+
+.custom-vertical {
+  height: 100%;
+  width: 2px;
+  background-color: grey;
+}
+
+.custom-container {
+  margin-top: 10px;
+  /* height: 65.5vh; */
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: rgb(208, 208, 208);
+  padding: 10px;
+  display: flex;
+  position: relative;
+
+}
+
+.package-data {
+  width: 50%;
+}
+
+.hid-show {
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
+  right: 10px;
+}
+
+
+.tab-active {
+  color: rgb(5, 107, 158);
+  border: 0;
+  border-bottom: 2px solid rgb(5, 107, 158);
+}
+
+.custom-box{
+  height: 130px;
+  width: 130px;
+}
+.product-container{
+  width: 50%;
+}
+
+@media (max-width: 480px) {
+  .my-component {
+    width: 50%;
+  }
+
+  .custom {
+    margin-top: 25%;
+  }
+
+  .product-container{
+    width: 100%;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .custom {
+    margin-top: 15%;
+  }
+  .product-container{
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .custom {
+    margin-top: 10%;
+  }
+
+}

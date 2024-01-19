@@ -1,0 +1,127 @@
+<div class="container-fluid custom">
+  <div class="card rounded-0 shadow mb-3">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center gap-3">
+        <fa-icon (click)="handleClickButton()" class="btn btn-outline-primary" [icon]="faChevronLeft"></fa-icon>
+        <div class="custom-vertical"></div>
+        <div>
+          <h4 class="ml-2">Shipping Symmary</h4>
+          <p>{{shipNo}}</p>
+        </div>
+      </div>
+      <button class="btn btn-outline-primary rounded-0" (click)="handleClose()">
+        Close
+      </button>
+    </div>
+    <h5 class="text-center mt-3" *ngIf="!shipmentdetail">
+      No Data Found!!!
+    </h5>
+    <div class="card-body" *ngIf="shipmentdetail">
+      <div class="custom-container">
+        <div class="package-data">
+          <h5 class="text-purple" style="color: purple;">
+            {{shipmentdetail?.Status}}
+          </h5>
+          <div>
+            <p class="text-md mb-0">Shipment number</p>
+            <p>{{shipmentdetail?.ShipmentNo}}</p>
+          </div>
+          <div *ngIf="!isHided">
+            <div *ngIf="shipmentdetail?.DeliveryMethod==='SHP'">
+              <p class="text-md mb-0">Carrier</p>
+              <p>{{shipmentdetail?.ScacAndService}}</p>
+            </div>
+
+
+            <div>
+              <p class="text-md mb-0">Assigned to</p>
+              <p>{{shipmentdetail?.AssignedToUserId}}</p>
+            </div>
+
+            <div>
+              <p class="text-md mb-0">Ship to</p>
+              <p class="mb-0">{{shipmentdetail?.ToAddress?.FirstName}} {{shipmentdetail?.ToAddress?.LastName}}</p>
+              <p class="mb-0">{{shipmentdetail?.ToAddress?.AddressLine1}}</p>
+              <p class="mb-0">{{shipmentdetail?.ToAddress?.City}},{{shipmentdetail?.ToAddress?.State}},{{shipmentdetail?.ToAddress?.ZipCode}}</p>
+              <p class="mb-0">{{shipmentdetail?.ToAddress?.Country}}</p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="package-data">
+          <div *ngIf="shipmentdetail?.DeliveryMethod==='SHP'">
+            <p class="text-md mb-0">Expected ship date</p>
+            <p>{{shipmentdetail?.ExpectedShipmentDate}}</p>
+          </div>
+          <div *ngIf="shipmentdetail?.DeliveryMethod==='PICK'">
+            <p class="text-md mb-0">Expected pickup date</p>
+            <p>{{shipmentdetail?.ExpectedPickupDate}}</p>
+          </div>
+          <div *ngIf="!isHided">
+            <div class="mb-3">
+              <p class="text-md mb-0">Customer Info</p>
+              <p class="mb-0">{{shipmentdetail?.BillToAddress?.FirstName}} {{shipmentdetail?.BillToAddress?.FirstName}}</p>
+              <p class="mb-0">{{shipmentdetail?.BillToAddress?.Phonenumber}}</p>
+              <p class="mb-0">{{shipmentdetail?.BillToAddress?.EmailID}}</p>
+            </div>
+            <div>
+              <p class="text-md mb-0">Bill to</p>
+              <p class="mb-0">{{shipmentdetail?.BillToAddress?.FirstName}} {{shipmentdetail?.BillToAddress?.LastName}}</p>
+              <p class="mb-0">{{shipmentdetail?.BillToAddress?.AddressLine1}}</p>
+              <p class="mb-0">{{shipmentdetail?.BillToAddress?.City}},{{shipmentdetail?.BillToAddress?.State}},{{shipmentdetail?.BillToAddress?.ZipCode}}</p>
+              <p class="mb-0">{{shipmentdetail?.BillToAddress?.Country}}</p>
+            </div>
+          </div>
+
+        </div>
+        <p (click)="handleClickshowHide()" class="hid-show text-primary">
+          {{isHided?'show': 'Hide'}} Info</p>
+      </div>
+
+      <div class="container-fluid p-0">
+        <div class="nav nav-tabs d-flex" id="nav-tab" role="tablist">
+          <div class="nav-item nav-link p-e tab-active">
+            <h5 class="mt-3 px-3">Products ({{shipmentdetail?.ShipmentLines?.TotalNumberOfRecords }})</h5>
+          </div>
+        </div>
+        <div class="d-flex flex-wrap">
+          <div class="d-flex gap-3 mt-3 product-container"  *ngFor="let product of shipmentdetail?.ShipmentLines?.ShipmentLine">
+            <div class="border p-2 custom-box">
+              <img height="100%" width="100%" [src]="product?.OrderLine?.ItemDetails?.ImageUrl" [alt]="product?.OrderLine?.ItemDetails?.ItemID"/>
+            </div>
+            <div>
+              <h6 style="color: rgb(5, 107, 158);" class="mb-0">{{product?.OrderLine?.ItemDetails?.Description}}</h6>
+              <p class="mb-0">Product Id:{{product?.OrderLine?.ItemDetails?.ItemId }}</p>
+              <p class="mb-0">Quantity: {{product?.Quantity}} {{product?.OrderLine?.ItemDetails?.DisplayUnitOfMeasure}}</p>
+            </div>
+          </div>
+          <!-- <div class="d-flex gap-3 mt-3" style="width: 50%;">
+            <div class="border p-2 custom-box">
+              image
+            </div>
+            <div>
+              <h6 style="color: rgb(5, 107, 158);" class="mb-0">Heading some big heading</h6>
+              <p class="mb-0">Product Id:1000gjhukwhw</p>
+              <p class="mb-0">Quantity: 1 Each</p>
+            </div>
+          </div>
+          <div class="d-flex gap-3 mt-3" style="width: 50%;">
+            <div class="border p-2 custom-box">
+              image
+            </div>
+            <div>
+              <h6 style="color: rgb(5, 107, 158);" class="mb-0">Heading some big heading</h6>
+              <p class="mb-0">Product Id:1000gjhukwhw</p>
+              <p class="mb-0">Quantity: 1 Each</p>
+            </div>
+          </div> -->
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
